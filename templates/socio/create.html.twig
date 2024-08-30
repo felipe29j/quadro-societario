@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Criar Novo Sócio{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <h1>Criar Novo Sócio</h1>
+
+        {{ form_start(form) }}
+
+            <div class="mb-3">
+                {{ form_label(form.empresa, null, {'label_attr': {'class': 'form-label'}}) }}
+                {{ form_widget(form.empresa, {'attr': {'class': 'form-select'}}) }}
+                {{ form_errors(form.empresa) }}
+            </div>
+            
+            <div class="mb-3">
+                {{ form_label(form.nome, null, {'label_attr': {'class': 'form-label'}}) }}
+                {{ form_widget(form.nome, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.nome) }}
+            </div>
+
+            <div class="mb-3">
+                {{ form_label(form.cpf, null, {'label_attr': {'class': 'form-label'}}) }}
+                {{ form_widget(form.cpf, {'attr': {'class': 'form-control', 'id': 'socio_cpf'}}) }}
+                {{ form_errors(form.cpf) }}
+                <div id="cpf-error" class="text-danger"></div>
+            </div>
+     
+            <button type="submit" class="btn btn-primary" id="submit-button">
+                <i class="bi bi-check-circle"></i> Salvar
+            </button>
+        {{ form_end(form) }}
+
+        <a href="{{ path('app_socio_index') }}" class="btn btn-outline-secondary mt-3">
+            <i class="bi bi-arrow-left-circle"></i> Voltar para a lista
+        </a>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+{% endblock %}
+
+{% block javascripts %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <script src="{{ asset('js/scripts.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Visualizar Empresa{% endblock %}
+
+{% block body %}
+    <h1>Empresa: {{ empresa.nome }}</h1>
+
+    <table class="table table-bordered table-hover">
+        <tbody>
+            <tr>
+                <th>ID</th>
+                <td>{{ empresa.id }}</td>
+            </tr>
+            <tr>
+                <th>Nome</th>
+                <td>{{ empresa.nome }}</td>
+            </tr>
+            <tr>
+                <th>Endereço</th>
+                <td>{{ empresa.endereco }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_empresa_index') }}" class="btn btn-outline-secondary">
+        <i class="bi bi-arrow-left-circle"></i> Voltar para a lista
+    </a>
+
+    <a href="{{ path('app_empresa_update', {'id': empresa.id}) }}" class="btn btn-outline-warning">
+        <i class="bi bi-pencil"></i> Editar
+    </a>
+
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    {% if app.user %}
+        <script>
+            window.location.href = "{{ path('app_empresa_index') }}";
+        </script>
+    {% else %}
+        <div class="container mt-5">
+            <!-- Mensagens de erro -->
+            {% for flash_error in app.flashes('verify_email_error') %}
+                <div class="alert alert-danger" role="alert">
+                    {{ flash_error }}
+                </div>
+            {% endfor %}
+
+            <!-- Formulário de registro -->
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h1 class="h3 mb-3 font-weight-normal text-center">Cadastrar</h1>
+
+                            {{ form_start(registrationForm, {'attr': {'class': 'needs-validation', 'novalidate': 'novalidate'}}) }}
+                                <div class="mb-3">
+                                    {{ form_label(registrationForm.email, 'Email') }}
+                                    {{ form_widget(registrationForm.email, {'attr': {'class': 'form-control'}}) }}
+                                    {{ form_errors(registrationForm.email) }}
+                                </div>
+
+                                <div class="mb-3">
+                                    {{ form_label(registrationForm.plainPassword, 'Senha') }}
+                                    {{ form_widget(registrationForm.plainPassword, {'attr': {'class': 'form-control'}}) }}
+                                    {{ form_errors(registrationForm.plainPassword) }}
+                                </div>
+
+                                <div class="mb-3 form-check">
+                                    {{ form_widget(registrationForm.agreeTerms, {'attr': {'class': 'form-check-input'}}) }}
+                                    {{ form_label(registrationForm.agreeTerms, 'Aceito os termos e condições', {'label_attr': {'class': 'form-check-label'}}) }}
+                                    {{ form_errors(registrationForm.agreeTerms) }}
+                                </div>
+
+                                <button type="submit" class="btn btn-primary w-100">Cadastrar</button>
+                            {{ form_end(registrationForm) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

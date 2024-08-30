@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sócios{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1>Sócios</h1>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>CPF</th>
+                    <th>Empresa</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for socio in socios %}
+                <tr>
+                    <td>{{ socio.id }}</td>
+                    <td>{{ socio.nome }}</td>
+                    <td>{{ socio.cpf }}</td>
+                    <td>
+                        {% if socio.empresa %}
+                            {{ socio.empresa.nome }}
+                        {% else %}
+                            Nenhuma empresa
+                        {% endif %}
+                    </td>
+                    <td>
+                        <a href="{{ path('app_socio_show', {'id': socio.id}) }}" class="btn btn-outline-primary btn-sm">
+                            <i class="bi bi-eye"></i> Ver
+                        </a>
+                        <a href="{{ path('app_socio_update', {'id': socio.id}) }}" class="btn btn-outline-warning btn-sm">
+                            <i class="bi bi-pencil"></i> Editar
+                        </a>
+                        {{ include('socio/_delete_form.html.twig', { socio: socio }) }}
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5">Nenhum registro encontrado</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="mb-3">
+            <a href="{{ path('app_socio_create') }}" class="btn btn-primary">
+                <i class="bi bi-plus-circle"></i> Criar Novo Sócio
+            </a>
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+{% endblock %}

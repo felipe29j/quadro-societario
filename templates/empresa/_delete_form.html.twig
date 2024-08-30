@@ -1,0 +1,8 @@
+{# templates/empresa/_delete_form.html.twig #}
+
+<form method="post" action="{{ path('app_empresa_delete', {'id': empresa.id}) }}" style="display:inline;">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ empresa.id) }}">
+    <button class="btn btn-outline-danger btn-sm" type="submit" title="Excluir">
+        <i class="bi bi-trash"></i> Excluir
+    </button>
+</form>

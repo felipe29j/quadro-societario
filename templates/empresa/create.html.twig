@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Criar Nova Empresa{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <h1>Criar Nova Empresa</h1>
+
+        {{ form_start(form) }}
+            <div class="mb-3">
+                {{ form_label(form.nome) }}
+                {{ form_widget(form.nome, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.nome) }}
+            </div>
+            <div class="mb-3">
+                {{ form_label(form.endereco) }}
+                {{ form_widget(form.endereco, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.endereco) }}
+            </div>
+
+            <button class="btn btn-primary">
+                <i class="bi bi-check-circle"></i> Salvar
+            </button>
+        {{ form_end(form) }}
+
+        <a href="{{ path('app_empresa_index') }}" class="btn btn-outline-secondary mt-3">
+            <i class="bi bi-arrow-left-circle"></i> Voltar para a lista
+        </a>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+{% endblock %}
