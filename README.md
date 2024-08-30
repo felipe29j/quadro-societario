@@ -1,4 +1,4 @@
-# Empresa e Sócio - Sistema de Cadastro
+# Quadro Societario - Sistema de Cadastro
 
 Este é um projeto de sistema para cadastro de empresas e seu quadro societário, desenvolvido com Symfony no backend e Angular no frontend. O projeto inclui funcionalidades para CRUD de empresas e sócios, autenticação.
 
@@ -6,7 +6,7 @@ Este é um projeto de sistema para cadastro de empresas e seu quadro societário
 
 ## 1.Clonar o Repositório
 
-git clone https://gitlab.com/felipe.jengcomp/empresa-socio.git
+git clone https://github.com/felipe29j/quadro-societario.git
 
    cd empresa-socio
 
@@ -18,7 +18,7 @@ git clone https://gitlab.com/felipe.jengcomp/empresa-socio.git
 
     Edite o arquivo .env e configure a URL do banco de dados PostgreSQL:
     username e password
-    DATABASE_URL="pgsql://username:password@localhost:5432/empresa_socio"
+    DATABASE_URL="pgsql://username:password@localhost:5432/quadro_societario"
 
 ## 4. Criar a Base de Dados
 
@@ -57,17 +57,6 @@ Criar um novo sócio.
 Editar um sócio existente.
 Excluir um sócio.
 
-### Melhorias e Personalizações:
-
-O código pode ser melhorado para evitar parecer um CRUD genérico, adicionando validações, mensagens de erro amigáveis e tratamento de exceções.
-Implementação de uma camada de serviços para separar a lógica de negócios dos controladores.
-Adição de autenticação e autorização para controlar quem pode acessar e modificar os dados.
-Customização da interface para uma melhor experiência do usuário, utilizando estilos e design responsivo.
-Segurança:
-
-Utilização de tokens CSRF para evitar ataques de falsificação de solicitação entre sites.
-Validação e sanitização de entradas para proteger contra injeções SQL e outros tipos de ataques.
-
 ### Conclusão
 
-Parabéns! Você concluiu a instalação do projeto do mercado. Agora, você tem um sistema funcional para cadastrar produtos, tipos de produtos, registro de vendas e listagem de produtos.
+Parabéns! Você concluiu a instalação do projeto de quadro societario. 
